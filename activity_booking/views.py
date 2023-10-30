@@ -66,6 +66,7 @@ class BookingUpdateView(UpdateView):
     template_name = 'booking_form.html'
     success_url = reverse_lazy('booking_list')
 
+
 class BookingDeleteView(DeleteView):
     model = Booking
     template_name = 'booking_confirm_delete.html'
