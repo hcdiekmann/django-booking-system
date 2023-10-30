@@ -9,7 +9,7 @@ urlpatterns = [
     path('', ActivityListView.as_view(), name='activity_list'),
     path('activity/<int:pk>', ActivityDetailView.as_view(), name='activity_detail'),
     path('booking/', BookingListView.as_view(), name='booking_list'),
-    path('booking/create/', BookingCreateView.as_view(), name='booking_create'),
+    path('booking/create/<int:activity_id>/', BookingCreateView.as_view(), name='booking_create'),
     path('booking/<int:pk>/update/', BookingUpdateView.as_view(), name='booking_update'),
     path('booking/<int:pk>/delete/', BookingDeleteView.as_view(), name='booking_delete'),
 ]

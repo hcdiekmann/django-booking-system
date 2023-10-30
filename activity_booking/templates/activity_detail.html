@@ -1,7 +1,24 @@
 {% extends 'base.html' %} {% block content %}
-<h1>{{ activity.name }}</h1>
-<p>{{ activity.description }}</p>
-<p>Price: {{activity.price}} NZD</p>
-<p>Duration: {{activity.duration_hours}} hours</p>
-
+<div class="row">
+  <div class="col-md-6 col-lg-4 d-none d-md-block">
+    <!-- Image will be hidden on small devices -->
+    <img
+      src="{{ activity.image.url }}"
+      class="img-fluid"
+      alt="{{ activity.name }}"
+    />
+  </div>
+  <div class="col-md-6 col-lg-8">
+    <!-- Content will take up remaining space -->
+    <h1>{{ activity.name }}</h1>
+    <p>{{ activity.description }}</p>
+    <p><strong>Price: </strong>{{ activity.price }} NZD</p>
+    <p><strong>Duration: </strong>{{ activity.duration_hours }} hours</p>
+    <a
+      class="mt-4 btn btn-primary"
+      href="{% url 'booking_create' activity.pk %}"
+      >Book Now</a
+    >
+  </div>
+</div>
 {% endblock %}
