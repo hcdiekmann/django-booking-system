@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<center>
+  <h1>Activities</h1>
+</center>
+<div class="container">
+  <div class="row">
+    {% for activity in activities %}
+    <div class="col-12 col-lg-6">
+      <!-- For large screens, take up half the row (6 out of 12 columns). For smaller screens, take up the entire row (12 out of 12 columns). -->
+      <div class="card shadow-sm mb-4">
+        <!-- Added mb-4 for margin-bottom -->
+        <div
+          class="card-body text-center d-flex flex-column justify-content-center align-items-center"
+        >
+          <h5 class="card-title">{{ activity.name }}</h5>
+          <img
+            src="{{ activity.image.url }}"
+            class="card-img-top"
+            alt="..."
+            style="max-width: 30em"
+          />
+          <div class="pt-2">
+            <a
+              href="{% url 'activity_detail' activity.pk %}"
+              class="btn btn-primary"
+            >
+              More information
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+      <h3 class="text-muted">No activities available</h3>
+      <p>
+        Add some through the
+        <a href="{% url 'admin:index' %}">admin dashboard</a>
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
