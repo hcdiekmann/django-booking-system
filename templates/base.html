@@ -12,7 +12,7 @@
     />
   </head>
   <body data-bs-theme="dark">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
       <div class="container-fluid mx-5">
         <a class="navbar-brand" href="{% url 'activity_list' %}"
           >Outdoor Adventure</a
@@ -35,11 +35,11 @@
                 >Activities</a
               >
             </li>
-            {% comment %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'booking_list' %}">Bookings</a>
+              <a class="nav-link" href="{% url 'booking_list' %}"
+                >Your Bookings</a
+              >
             </li>
-            {% endcomment %}
           </ul>
         </div>
       </div>

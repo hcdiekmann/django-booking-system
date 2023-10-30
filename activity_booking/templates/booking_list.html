@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+<center>
+  <h1 class="mb-4">Bookings</h1>
+</center>
+<div class="container">
+  <div class="row">
+    {% for booking in bookings %}
+    <div class="col-12 col-lg-6">
+      <div class="card shadow-sm mb-4">
+        <div
+          class="card-body text-center d-flex flex-column justify-content-center align-items-center"
+        >
+          <h4 class="card-title">{{ booking.activity.name }}</h4>
+          <p class="card-text">
+            <strong>Name: </strong>{{ booking.customer_name }}
+          </p>
+          <p class="card-text">
+            <strong>Email: </strong>{{ booking.customer_email }}
+          </p>
+          <p class="card-text">
+            <strong>Date: </strong>{{ booking.booking_date }}
+          </p>
+          <p class="card-text">
+            <strong>Status: </strong>
+            {{ booking.confirmed|yesno:"Confirmed,Not Confirmed" }}
+          </p>
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <a
+              href="{% url 'booking_update' booking.pk %}"
+              class="btn btn-primary"
+              >Update</a
+            >
+            <a
+              href="{% url 'booking_delete' booking.pk %}"
+              class="btn btn-danger"
+              >Delete</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <center>
+      <h3 class="text-muted">You have no bookings yet</h3>
+      <a class="mt-4 btn btn-primary" href="{% url 'booking_create' %}"
+        >Book Now</a
+      >
+    </center>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

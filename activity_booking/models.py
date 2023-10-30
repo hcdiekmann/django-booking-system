@@ -12,4 +12,14 @@ class Activity(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.price} NZD"
-    
+
+
+class Booking(models.Model):
+    activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
+    customer_name = models.CharField(max_length=200)
+    customer_email = models.EmailField()
+    booking_date = models.DateTimeField()
+    confirmed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.customer_name} - {self.activity.name} - {self.booking_date}"
