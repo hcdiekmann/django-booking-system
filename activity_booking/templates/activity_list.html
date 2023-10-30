@@ -19,6 +19,7 @@
             alt="..."
             style="max-width: 30em"
           />
+          <p class="card-text mt-2">Starting from {{ activity.price }} NZD</p>
           <div class="pt-2">
             <a
               href="{% url 'activity_detail' activity.pk %}"
@@ -26,6 +27,11 @@
             >
               More information
             </a>
+            <a
+              class="btn btn-primary"
+              href="{% url 'booking_create' activity.pk %}"
+              >Book Now</a
+            >
           </div>
         </div>
       </div>
