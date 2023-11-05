@@ -37,13 +37,13 @@
       </div>
     </div>
     {% empty %}
-    <div class="col-12">
+    <center>
       <h3 class="text-muted">No activities available</h3>
       <p>
         Add some through the
         <a href="{% url 'admin:index' %}">admin dashboard</a>
       </p>
-    </div>
+    </center>
     {% endfor %}
   </div>
 </div>
